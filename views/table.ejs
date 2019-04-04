@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <a href="/"><button type="submit" class="btn btn-info">Add More</button></a>
+    <form action="/table" method="POST">
+<div class="container">
+  <h2>mydb</h2>
+  <p>mydb datas are shown by this table:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>NO</th>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Edit/Delete</th>
+      
+      </tr>
+    </thead>
+    <tbody> <% for(var i=0; i < info.length; i++) { %>
+      <tr>
+          <td># <%= (i+1) %></td>
+          <td><%= info[i].stdid %></td>
+           <td><%= info[i].stdname %></td>
+
+           <td>
+            <a class="btn btn-xs btn-warning btn-edit" href="/edit/<%=info[i]._id %>">Edit</a>
+
+            <a class="btn btn-xs btn-danger btn-delete" href="/delete/<%=info[i]._id %>">Delete</a>
+
+          </td>
+      </tr>
+  <% } %>
+     
+    </tbody>
+  </table>
+</div>
+</form>
+</body>
+</html>
+
